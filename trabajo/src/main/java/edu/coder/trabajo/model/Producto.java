@@ -6,6 +6,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Positive;
 
 @Entity
 public class Producto {
@@ -18,6 +19,7 @@ public class Producto {
 
     private String descripcion;
 
+    @Positive(message = "El precio debe ser mayor que cero")
     @NotNull(message = "El precio no puede ser nulo")
     private Double precio;
 
