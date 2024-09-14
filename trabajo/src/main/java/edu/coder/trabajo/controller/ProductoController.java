@@ -5,10 +5,7 @@ import edu.coder.trabajo.model.Producto;
 import edu.coder.trabajo.service.ProductoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/producto")
@@ -22,4 +19,9 @@ public class ProductoController {
         Producto nuevoProducto = productoService.agregarProducto(producto);
         return ResponseEntity.ok(nuevoProducto);
     }
+    @DeleteMapping("/eliminar/{id}")
+    public void eliminarProducto(@PathVariable Long id) {
+        productoService.eliminarProducto(id);
+    }
+
 }

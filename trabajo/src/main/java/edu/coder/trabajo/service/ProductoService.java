@@ -11,6 +11,10 @@ public class ProductoService {
     @Autowired
     private ProductoRepository productoRepository;
 
+    public void eliminarProducto(Long id) {
+        productoRepository.deleteById(id);
+    }
+
     public Producto agregarProducto(Producto producto) {
         return productoRepository.save(producto);
     }
