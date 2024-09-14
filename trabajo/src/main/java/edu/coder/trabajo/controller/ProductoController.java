@@ -3,6 +3,7 @@ package edu.coder.trabajo.controller;
 
 import edu.coder.trabajo.model.Producto;
 import edu.coder.trabajo.service.ProductoService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,9 +16,8 @@ public class ProductoController {
     private ProductoService productoService;
 
     @PostMapping("/agregar")
-    public ResponseEntity<Producto> agregarProducto(@RequestBody Producto producto) {
-        Producto nuevoProducto = productoService.agregarProducto(producto);
-        return ResponseEntity.ok(nuevoProducto);
+    public ResponseEntity<Producto> agregarProducto(@Valid @RequestBody Producto producto) {
+        return ResponseEntity.ok(productoService.agregarProducto(producto));
     }
     @DeleteMapping("/eliminar/{id}")
     public void eliminarProducto(@PathVariable Long id) {

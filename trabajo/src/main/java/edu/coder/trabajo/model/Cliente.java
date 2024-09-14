@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
-
+import jakarta.validation.constraints.NotBlank;
 import java.util.List;
 
 @Entity
@@ -15,10 +15,12 @@ public class Cliente {
 
     @NotNull
     @Size(min = 3, max = 30)
+    @NotBlank(message = "El nombre no puede estar vacío")
     private String nombre;
 
-
+    @NotBlank(message = "La dirección no puede estar vacía")
     private String direccion;
+
 
     @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)
     @JsonIgnore
