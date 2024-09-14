@@ -16,6 +16,8 @@ public class Producto {
     @NotBlank(message = "El nombre no puede estar vacío")
     private String nombre;
 
+    private String descripcion;
+
     @NotNull(message = "El precio no puede ser nulo")
     private Double precio;
 
@@ -32,6 +34,14 @@ public class Producto {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 
     public Double getPrecio() {
